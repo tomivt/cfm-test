@@ -105,6 +105,7 @@ h1 {
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
   width: 100%;
+  box-sizing: border-box;
   caret-color: var(--gold-bright);
 }
 
@@ -213,6 +214,7 @@ h1 {
 .form-actions {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   padding-top: 0.5rem;
   border-top: 1px solid rgba(120,90,40,0.3);
 }
@@ -238,4 +240,49 @@ h1 {
 .btn-submit:disabled {
   opacity: 0.35;
   cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .page-wrapper {
+    padding: 1.2rem 1rem;
+  }
+
+  header {
+    margin-bottom: 1.8rem;
+  }
+
+  .champion-form {
+    padding: 1.2rem 1rem;
+    gap: 1rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+
+  .btn-submit {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 860px) {
+  .page-wrapper {
+    padding: 1.5rem 1.5rem;
+  }
+
+  .champion-form {
+    padding: 1.5rem 1.8rem;
+  }
+
+  .form-row {
+    grid-template-columns: 80px 1fr 1fr;
+    gap: 0.9rem;
+  }
 }

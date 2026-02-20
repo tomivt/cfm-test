@@ -15,6 +15,7 @@ import {FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators} from
   styleUrl: './details-page.component.css'
 })
 export class DetailsPageComponent implements OnInit, OnDestroy {
+
   private route: ActivatedRoute = inject(ActivatedRoute);
   private router: Router = inject(Router);
   private championService: ChampionService = inject(ChampionService);
@@ -43,7 +44,9 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
     const id: number = Number(this.route.snapshot.paramMap.get('id'));
     this.sub.add(
       this.championService.getChampionById(id).subscribe(champion => {
-        if (!champion) { this.router.navigate(['/']); return; }
+        if (!champion) {
+          this.router.navigate(['/']); return;
+        }
         this.champion = champion;
         this.fillForm(champion);
       })

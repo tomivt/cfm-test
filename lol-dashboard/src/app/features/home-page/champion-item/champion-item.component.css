@@ -137,3 +137,17 @@
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+@media (max-width: 640px) {
+  .champion-card {
+    padding: 1.2rem 1rem 1rem;
+  }
+
+  .champion-name {
+    font-size: 1.1rem;
+  }
+
+  .champion-card:hover {
+    transform: none;
+  }
+}

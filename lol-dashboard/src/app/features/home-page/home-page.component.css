@@ -75,6 +75,7 @@ h1 {
   justify-content: center;
   gap: 1.5rem;
   margin-top: 1.8rem;
+  flex-wrap: wrap;
 }
 
 .search-field {
@@ -152,4 +153,47 @@ h1 {
 @keyframes fadeDown {
   from { opacity: 0; transform: translateY(-18px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  :host {
+    padding: 1.2rem 1rem;
+  }
+
+  header {
+    margin-bottom: 2rem;
+  }
+
+  .search-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .search-field {
+    width: 100%;
+  }
+
+  .champion-count {
+    text-align: center;
+  }
+
+  .champion-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  :host {
+    padding: 1.5rem 1.5rem;
+  }
+
+  .champion-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
+  .search-field {
+    width: 280px;
+  }
 }
