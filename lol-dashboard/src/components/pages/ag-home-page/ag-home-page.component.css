@@ -1,0 +1,166 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 2rem 2.5rem;
+  box-sizing: border-box;
+  font-family: 'Crimson Text', Georgia, serif;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+h1 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1.6rem, 5vw, 3rem);
+  letter-spacing: 0.12em;
+  background: linear-gradient(180deg, #F0E6D3 0%, #C8AA6E 50%, #785A28 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  animation: fadeDown 0.9s ease both;
+}
+
+.subtitle {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold-mid);
+  margin-top: 0.6rem;
+  animation: fadeDown 0.9s 0.15s ease both;
+}
+
+.header-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  max-width: 480px;
+}
+
+.ornament-line {
+  flex: 1;
+  max-width: 200px;
+  height: 1px;
+  background: linear-gradient(to var(--dir, right), transparent, var(--gold-mid));
+}
+
+.ornament-line.left  { --dir: right; }
+.ornament-line.right { --dir: left; }
+
+.ornament-diamond {
+  width: 10px;
+  height: 10px;
+  background: var(--gold-bright);
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px var(--gold-mid);
+  flex-shrink: 0;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.8rem;
+}
+
+.search-field {
+  width: 340px;
+}
+
+.search-field ::ng-deep .mdc-notched-outline__leading,
+.search-field ::ng-deep .mdc-notched-outline__notch,
+.search-field ::ng-deep .mdc-notched-outline__trailing {
+  border-color: var(--gold-dark) !important;
+  transition: border-color 0.2s;
+}
+
+.search-field:hover ::ng-deep .mdc-notched-outline__leading,
+.search-field:hover ::ng-deep .mdc-notched-outline__notch,
+.search-field:hover ::ng-deep .mdc-notched-outline__trailing {
+  border-color: var(--gold-mid) !important;
+}
+
+.search-field ::ng-deep .mat-mdc-input-element {
+  color: var(--text-light) !important;
+  caret-color: var(--gold-bright);
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.05em !important;
+}
+
+.search-field ::ng-deep .mat-mdc-input-element::placeholder {
+  color: var(--text-muted) !important;
+  opacity: 1;
+}
+
+.search-field ::ng-deep .mdc-floating-label {
+  color: var(--text-muted) !important;
+}
+
+.champion-count {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-mid);
+}
+
+.champion-count ::ng-deep .mat-badge-content {
+  background: var(--gold-dark) !important;
+  color: var(--text-light) !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.65rem !important;
+  font-weight: 700;
+}
+
+.grid-wrapper {
+  flex: 1;
+  min-height: 0;
+  border: 1px solid var(--gold-dark);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px var(--gold-deep),
+    0 8px 32px rgba(1, 10, 19, 0.6);
+}
+
+.champion-grid-table {
+  height: 100%;
+  width: 100%;
+
+  --ag-background-color: var(--bg-panel);
+  --ag-odd-row-background-color: var(--bg-dark);
+  --ag-header-background-color: var(--bg-void);
+  --ag-header-foreground-color: var(--gold-bright);
+  --ag-foreground-color: var(--text-light);
+  --ag-secondary-foreground-color: var(--text-muted);
+  --ag-border-color: var(--gold-dark);
+  --ag-row-border-color: rgba(120, 90, 40, 0.25);
+  --ag-row-hover-color: rgba(200, 170, 110, 0.07);
+  --ag-selected-row-background-color: rgba(200, 170, 110, 0.13);
+  --ag-font-family: 'Cinzel', serif;
+  --ag-font-size: 0.88rem;
+  --ag-cell-horizontal-padding: 1rem;
+  --ag-header-column-separator-color: var(--gold-dark);
+  --ag-header-column-separator-display: block;
+  --ag-range-selection-border-color: var(--gold-bright);
+  --ag-input-focus-border-color: var(--gold-bright);
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

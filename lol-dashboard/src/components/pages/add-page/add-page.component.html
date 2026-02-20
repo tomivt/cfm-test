@@ -1,0 +1,142 @@
+<div class="page-wrapper">
+
+  <header>
+
+    <div class="header-ornament">
+      <div class="ornament-line left"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line right"></div>
+    </div>
+
+    <h1> Add a Champion </h1>
+    <p class="subtitle"> Forge a new Legend </p>
+
+  </header>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="champion-form">
+
+    <div class="form-row">
+
+      <div class="form-field">
+        <label class="field-label"> Auto ID </label>
+        <input class="field-input field-input--readonly" [value]="'#' + nextId" readonly />
+      </div>
+
+      <div class="form-field">
+
+        <label class="field-label">
+          Name <span class="required"> * </span>
+        </label>
+
+        <input
+          class="field-input"
+          [class.field-input--error]="form.get('name')?.invalid && form.get('name')?.touched"
+          formControlName="name"
+          placeholder="ex: Ahri"
+        />
+
+        @if (form.get('name')?.invalid && form.get('name')?.touched) {
+          <span class="field-error">Name is required</span>
+        }
+
+      </div>
+
+      <div class="form-field">
+
+        <label class="field-label">
+          Key <span class="required"> * </span>
+        </label>
+
+        <input
+          class="field-input"
+          [class.field-input--error]="form.get('key')?.invalid && form.get('key')?.touched"
+          formControlName="key"
+          placeholder="ex: Ahri"
+        />
+
+        @if (form.get('key')?.invalid && form.get('key')?.touched) {
+          <span class="field-error"> Key is required </span>
+        }
+      </div>
+
+    </div>
+
+    <div class="form-field form-field--full">
+
+      <label class="field-label">
+        Title <span class="required"> * </span>
+      </label>
+
+      <input
+        class="field-input"
+        [class.field-input--error]="form.get('title')?.invalid && form.get('title')?.touched"
+        formControlName="title"
+        placeholder="ex: the Nine-Tailed Fox"
+      />
+
+      @if (form.get('title')?.invalid && form.get('title')?.touched) {
+        <span class="field-error"> Title is required </span>
+      }
+
+    </div>
+
+    <div class="form-field form-field--full">
+
+      <div class="tags-header">
+
+        <label class="field-label">
+          Roles <span class="required"> * </span>
+        </label>
+
+        @if (canAddTag) {
+          <button type="button" class="btn-add-tag" (click)="addTag()"> + Add role </button>
+        } @else {
+          <span class="tags-max"> Maximum reached (2) </span>
+        }
+
+      </div>
+
+      <div class="tags-list" formArrayName="tags">
+
+        @for (tag of tagsArray.controls; track $index; let i = $index) {
+
+          <div class="tag-row">
+
+            <select
+              class="field-input field-select"
+              [class.field-input--error]="tag.invalid && tag.touched"
+              [formControlName]="i">
+
+              <option value="" disabled> Select a role... </option>
+
+              @for (t of getAvailableTagsFor(i); track t) {
+                <option [value]="t"> {{ t }} </option>
+              }
+
+            </select>
+
+            <button type="button" class="btn-remove-tag" (click)="removeTag(i)"> ✕ </button>
+
+          </div>
+
+        }
+
+        @if (tagsArray.length === 0) {
+          <p class="tags-empty"> No role added yet ... </p>
+        }
+
+      </div>
+
+    </div>
+
+    <div class="form-actions">
+
+      <button type="submit" class="btn-submit" [disabled]="form.invalid">
+        <span> Forge Champion </span>
+      </button>
+
+    </div>
+
+  </form>
+
+</div>

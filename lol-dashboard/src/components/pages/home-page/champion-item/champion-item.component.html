@@ -1,0 +1,23 @@
+<article class="champion-card">
+
+  <div class="card-accent"></div>
+  <div class="shimmer"></div>
+
+  <span class="card-id">#{{ champion.id | number:'3.0-0' }}</span>
+
+  <div class="card-body">
+
+    <p class="champion-name">{{ champion.name }}</p>
+    <p class="champion-title">{{ champion.title | titlecase }}</p>
+
+    <div class="card-divider"></div>
+
+    <div class="tag-list">
+      @for (tag of champion.tags; track tag) {
+        <span class="tag tag-{{ tag }}"> {{ tag }} </span>
+      }
+    </div>
+
+  </div>
+
+</article>

@@ -1,0 +1,53 @@
+<header>
+
+  <div class="header-ornament">
+    <div class="ornament-line left"></div>
+    <div class="ornament-diamond"></div>
+    <div class="ornament-line right"></div>
+  </div>
+
+  <h1> Champions of Runeterra </h1>
+  <p class="subtitle"> Legends List </p>
+
+  <div class="search-wrapper">
+
+    <mat-form-field appearance="outline" class="search-field">
+      <input
+        matInput
+        placeholder="Search a champion..."
+        [(ngModel)]="searchQuery"
+        (ngModelChange)="onSearch()"
+      />
+    </mat-form-field>
+
+    <span
+      class="champion-count"
+      [matBadge]="filteredChampions.length"
+      matBadgeColor="accent"
+      matBadgeOverlap="false">
+        Champions
+    </span>
+
+  </div>
+
+</header>
+
+<div class="champion-grid">
+
+  @if (filteredChampions.length === 0) {
+
+    <div class="empty-state">
+      <p> No champion found ... </p>
+    </div>
+
+  } @else {
+
+    @for (champion of filteredChampions; track champion.id;) {
+
+      <app-champion-item [champion]="champion"/>
+
+    }
+
+  }
+
+</div>

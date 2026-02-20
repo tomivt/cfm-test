@@ -1,0 +1,101 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  height: 56px;
+  background: rgba(1, 10, 19, 0.92);
+  border-bottom: 1px solid var(--gold-dark);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 1px 0 var(--gold-deep),
+    0 4px 24px rgba(0, 0, 0, 0.6);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.brand-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #F0E6D3 0%, #C8AA6E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brand-diamond {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--gold-bright);
+  transform: rotate(45deg);
+  box-shadow: 0 0 6px var(--gold-mid);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 1rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-bright), transparent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--gold-bright);
+  border-color: var(--gold-dark);
+  background: rgba(200, 170, 110, 0.06);
+}
+
+.nav-links a.active {
+  color: var(--gold-bright);
+  border-color: var(--gold-dark);
+  background: rgba(200, 170, 110, 0.1);
+}
+
+.nav-links a.active::after {
+  opacity: 1;
+}
+
+.nav-icon {
+  font-size: 0.85rem;
+  line-height: 1;
+}

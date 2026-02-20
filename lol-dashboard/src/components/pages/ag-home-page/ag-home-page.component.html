@@ -1,0 +1,47 @@
+<header>
+
+  <div class="header-ornament">
+    <div class="ornament-line left"></div>
+    <div class="ornament-diamond"></div>
+    <div class="ornament-line right"></div>
+  </div>
+
+  <h1> Champions of Runeterra </h1>
+  <p class="subtitle"> Legends List </p>
+
+  <div class="search-wrapper">
+
+    <mat-form-field appearance="outline" class="search-field">
+      <input
+        matInput
+        placeholder="Search a champion..."
+        [(ngModel)]="searchQuery"
+        (ngModelChange)="onSearch()"
+      />
+    </mat-form-field>
+
+    <span
+      class="champion-count"
+      [matBadge]="filteredChampions.length"
+      matBadgeColor="accent"
+      matBadgeOverlap="false">
+        Champions
+    </span>
+
+  </div>
+
+</header>
+
+<div class="grid-wrapper">
+
+  <ag-grid-angular
+    class="champion-grid-table"
+    [rowData]="filteredChampions"
+    [columnDefs]="colDefs"
+    [defaultColDef]="defaultColDef"
+    [pagination]="true"
+    [paginationPageSize]="20"
+    [animateRows]="true"
+  />
+
+</div>
