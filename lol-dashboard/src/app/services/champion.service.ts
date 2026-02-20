@@ -13,6 +13,10 @@ export class ChampionService {
     return this.http.get<Champion[]>(this.apiUrl);
   }
 
+  getChampionById(id: number): Observable<Champion | undefined> {
+    return this.http.get<Champion>(`${this.apiUrl}/${id}`);
+  }
+
   getNextId(): Observable<number> {
     return this.getChampions().pipe(
       map((champions: Champion[]) => Math.max(...champions.map(c => c.id)) + 1)

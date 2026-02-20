@@ -1,10 +1,10 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ChampionService } from '../../../services/champion.service';
+import { ChampionService } from '../../services/champion.service';
 import { Subscription } from 'rxjs';
 
-const TAGS = ['Fighter', 'Tank', 'Assassin', 'Mage', 'Marksman', 'Support'] as const;
-type Tag = typeof TAGS[number];
+export const TAGS = ['Fighter', 'Tank', 'Assassin', 'Mage', 'Marksman', 'Support'] as const;
+export type Tag = typeof TAGS[number];
 
 @Component({
   selector: 'app-add-page',

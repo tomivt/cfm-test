@@ -12,8 +12,8 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
 })
 export class MenuComponent {
   links = [
-    { path: '/home',    label: 'Champions',  icon: '⚔' },
-    { path: '/home-ag', label: 'List',       icon: '☰' },
-    { path: '/add',     label: 'Add',     icon: '+' },
+    { path: '/champions', label: 'Champions', icon: '⚔' },
+    { path: '/champions-ag', label: 'List', icon: '☰' },
+    { path: '/add-champion', label: 'Add', icon: '+' },
   ];
 }

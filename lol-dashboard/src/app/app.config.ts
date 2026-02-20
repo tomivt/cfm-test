@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import { routes } from './app.routes';
 import {provideHttpClient} from '@angular/common/http';
-import {ChampionDataService} from '../services/champion-data.service';
+import {ChampionDataService} from './services/champion-data.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [

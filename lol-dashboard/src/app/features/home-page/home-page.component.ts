@@ -1,6 +1,6 @@
 import {Component, inject, OnDestroy, OnInit} from '@angular/core';
-import {Champion} from '../../../models/champion.model';
-import {ChampionService} from '../../../services/champion.service';
+import {Champion} from '../../models/champion.model';
+import {ChampionService} from '../../services/champion.service';
 import {Subscription} from 'rxjs';
 import {MatFormField, MatInput} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';

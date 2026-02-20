@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {InMemoryDbService} from 'angular-in-memory-web-api';
 import {Champion, ChampionResponse} from '../models/champion.model';
-import championData from '../assets/champion_info_2.json';
+import championData from '../../assets/champion_info_2.json';
 
 @Injectable({
   providedIn: 'root'
